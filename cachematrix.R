@@ -1,15 +1,62 @@
 ## Put comments here that give an overall description of what your
 ## functions do
+##
 
-## Write a short comment describing this function
+#####################################################
+#
+# I created the following functions using makeVector
+# and chasemean in the example as a reference.
+#
+# The function "set" in makeVector has no role,
+# Thus, I do not make the corresponding part 
+#  in makeChaseMatrix.
+#
+#####################################################
 
 makeCacheMatrix <- function(x = matrix()) {
+        #assign NULL to inv
+        inv <- NULL
+        
+        #assign x(matrix to be inverted) to get
+        #
+        # I think 
+        # no need to create "get" as a function
+        get <- x
 
+        #assign Inv globally to inv
+        setSolve <- function(Inv) inv <<- Inv
+
+        getSolve <- function() inv
+        # as a result, getSolve has inv as its value
+        
+        #return the following list
+        list(get = get,
+             setSolve = setSolve,
+             getSolve = getSolve)
 }
 
-
-## Write a short comment describing this function
-
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+        #assign x$getSolve() to inv
+        inv <- x$getSolve()
+
+        if(!is.null(inv)) {
+        #if inv is not null,
+        		 #return the next message
+                message("getting cached data")
+                #return the value of inv
+                return(inv)
+
+        }else{
+                #assign x$get to data
+                data <- x$get
+                #make inverse of data,
+                # and assign it to inv
+                inv <- solve(data, ...)
+
+                #execute setSolve(inv) in x
+                x$setSolve(inv)
+                
+                #return the value of inv
+                return(inv)
+        }
 }
