@@ -3,7 +3,8 @@
 # I created the following functions using makeVector
 # and chasemean in the example as a reference.
 #
-# The function "set" in makeVector has no role,
+# I think
+# the function "set" in makeVector has no role,
 # Thus, I do not make the corresponding part 
 #  in makeChaseMatrix.
 #
