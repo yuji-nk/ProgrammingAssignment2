@@ -1,7 +1,3 @@
-## Put comments here that give an overall description of what your
-## functions do
-##
-
 #####################################################
 #
 # I created the following functions using makeVector
@@ -12,6 +8,13 @@
 #  in makeChaseMatrix.
 #
 #####################################################
+## 
+## makeVector creates a list 
+## containing 
+## a matrix named get 
+## and functions
+## named setSolve
+## named getSolve
 
 makeCacheMatrix <- function(x = matrix()) {
         #assign NULL to inv
@@ -34,6 +37,11 @@ makeCacheMatrix <- function(x = matrix()) {
              setSolve = setSolve,
              getSolve = getSolve)
 }
+
+## cacheSolve calculates the inverse of a matrix that is x$get 
+## if x$getSolve() in empty.
+##
+## otherwise, returns x$getSolve() 
 
 cacheSolve <- function(x, ...) {
         #assign x$getSolve() to inv
